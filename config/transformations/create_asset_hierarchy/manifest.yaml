@@ -1,7 +1,6 @@
----
 # Manifest file downloaded from fusion
-externalId: tr-asset-sample
-name: create_asset_sample
+externalId: tr-create_asset_hierarchy_ui
+name: create_asset_hierarchy_ui
 query:
   file: transformation.sql
 destination:
@@ -9,7 +8,16 @@ destination:
 ignoreNullFields: true
 shared: true
 action: upsert
-dataSetExternalId: src:all
+dataSetExternalId: src:001:sap:ds
+authentication:
+    clientId: ${COGNITE_CLIENT_ID}
+    clientSecret: ${COGNITE_CLIENT_SECRET}
+    tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
+  # Optional: If idP requires providing the scopes
+    cdfProjectName: ${CDF_PROJECT_NAME}
+    scopes:
+        - https://westeurope-1.cognitedata.com/.default
+
 # Specify credentials separately like this:
 # authentication:
 #   read:
@@ -18,7 +26,7 @@ dataSetExternalId: src:all
 #     tokenUrl: ${READ_TOKEN_URL}
 #     cdfProjectName: ${READ_CDF_PROJECT_NAME}
 #     # Optional: If idP requires providing the scopes
-#     scopes:
+#     scopes: 
 #       - ${READ_SCOPES}
 #     # Optional: If idP requires providing the audience
 #     audience: ${READ_CDF_AUDIENCE}
@@ -28,7 +36,7 @@ dataSetExternalId: src:all
 #     tokenUrl: ${WRITE_TOKEN_URL}
 #     cdfProjectName: ${WRITE_CDF_PROJECT_NAME}
 #     # Optional: If idP requires providing the scopes
-#     scopes:
+#     scopes: 
 #       - ${WRITE_SCOPES}
 #     # Optional: If idP requires providing the audience
 #     audience: ${WRITE_CDF_AUDIENCE}
@@ -39,16 +47,7 @@ dataSetExternalId: src:all
 #   tokenUrl: ${TOKEN_URL}
 #   # Optional: If idP requires providing the scopes
 #   cdfProjectName: ${CDF_PROJECT_NAME}
-#   scopes:
+#   scopes: 
 #    - ${SCOPES}
 #   # Optional: If idP requires providing the audience
 #   audience: ${AUDIENCE}
-
-authentication:
-  clientId: ${COGNITE_CLIENT_ID}
-  clientSecret: ${COGNITE_CLIENT_SECRET}
-  tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
-  # Optional: If idP requires providing the scopes
-  cdfProjectName: ${CDF_PROJECT_NAME}
-  scopes:
-    - https://westeurope-1.cognitedata.com/.default
