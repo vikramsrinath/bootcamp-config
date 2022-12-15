@@ -16,7 +16,7 @@ authentication:
 # Optional: If idP requires providing the scopes
   cdfProjectName: ${CDF_PROJECT_NAME}
   scopes:
-      - https://westeurope-1.cognitedata.com/.default
+    - https://westeurope-1.cognitedata.com/.default
 # Specify credentials separately like this:
 # authentication:
 #   read:
