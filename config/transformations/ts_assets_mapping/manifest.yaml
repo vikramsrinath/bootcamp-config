@@ -17,7 +17,7 @@ authentication:
   cdfProjectName: ${CDF_PROJECT_NAME}
   scopes:
     - https://westeurope-1.cognitedata.com/.default
-# Specify credentials separately like this:
+# Specify credentials separately like this- :
 # authentication:
 #   read:
 #     clientId: ${READ_CLIENT_ID}
